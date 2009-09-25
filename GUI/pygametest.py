@@ -21,10 +21,10 @@ class gridarea:
 		#self.canvas.pack()
 		#self.canvas.grid()
 		self.sel = piece(0,0,0,0,0,0,0)
-		self.setbg('C:\\Users\\jmonk\\hi.gif')
-		self.createpiece(250,350,'bob','C:\\Users\\jmonk\\char.png',50,50)
-		self.createpiece(30,350,'john','C:\\Users\\jmonk\\char.png',50,50)
-		self.createpiece(100,350,'jack','C:\\Users\\jmonk\\char1.png',40,40)
+		self.setbg('.\\hi.gif')
+		self.createpiece(250,350,'bob','.\\char.png',50,50)
+		self.createpiece(30,350,'john','.\\char.png',50,50)
+		self.createpiece(100,350,'jack','.\\char1.png',40,40)
 		self.update()
 		
 	def selchar(self,name):
