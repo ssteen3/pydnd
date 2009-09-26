@@ -1,0 +1,13 @@
+Name:Dwarf
+Ability-Constitution:2
+Ability-Charisma:-2
+Favored Class:Nil
+Size:Medium
+Speed:20
+Number of Feats:0
+Skill-Darkvision:60
+Skill Points:4
+Skill per Level:1
+Language-Common
+Language-Dwarven
+Bonus Languages:

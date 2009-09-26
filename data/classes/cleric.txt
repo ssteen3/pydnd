@@ -1,0 +1,17 @@
+Name:Cleric
+HP:8
+Skill-Concentration
+Skill-Craft
+Skill-Diplomacy
+Skill-Heal
+Skill-Knowledge(arcana)
+Skill-Knowledge(history)
+Skill-Knowledge(religion)
+Skill-Knowledge(the planes)
+Skill-Profession
+Skill-Spellcraft
+Skill Points:2
+Feature-Aura
+Feature-Spells
+Feature-Spontaneous Casting
+Feature-Turn or Rebuke Undead

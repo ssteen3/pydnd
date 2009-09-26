@@ -1,0 +1,7 @@
+human.txt
+dwarf.txt
+elf.txt
+halfelf.txt
+halfling.txt
+orc.txt
+gnome.txt

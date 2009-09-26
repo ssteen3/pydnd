@@ -1,0 +1,2 @@
+Name:Paladin
+HP:10

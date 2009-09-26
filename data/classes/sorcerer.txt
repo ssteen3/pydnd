@@ -1,0 +1,2 @@
+Name:Sorcerer
+HP:4

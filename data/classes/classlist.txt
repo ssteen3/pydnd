@@ -1,0 +1,11 @@
+barbarian.txt
+bard.txt
+cleric.txt
+druid.txt
+fighter.txt
+monk.txt
+paladin.txt
+ranger.txt
+rogue.txt
+sorcerer.txt
+wizard.txt

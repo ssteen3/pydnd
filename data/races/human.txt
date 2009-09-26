@@ -1,0 +1,10 @@
+Name:Human
+Ability-Nil
+Favored Class:Nil
+Size:Medium
+Speed:30
+Number of Feats:1
+Skill Points:4
+Skill per Level:1
+Language:Common
+Bonus Languages:

@@ -1,0 +1,34 @@
+Character Name:
+Player Name:
+Class:
+Level:
+Race:
+Alignment:
+Deity:
+Size:
+Age:
+Gender:
+Height:
+Weight:
+Eyes:
+Hair:
+Skin:
+Health:
+Attribute-Strength:
+Attribute-Dexterity:
+Attribute-Constitution:
+Attribute-Intelligence:
+Attribute-Wisdom:
+Attribute-Charisma:
+Skill-Balance:
+Skill-Climb:
+Skill-Disable Device:
+Skill-Gather Information:
+Skill-Hide:
+Skill-Jump:
+Skill-Knowledge(Local):
+Skill-Listen:
+Skill-Move Silently:
+Skill-Open Lock:
+Skill-Spot:
+Skill-Tumble:

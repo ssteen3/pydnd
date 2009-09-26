@@ -1,0 +1,47 @@
+Name:Rogue
+HP:6
+Alignment:Any
+Skill-Appraise
+Skill-Balance
+Skill-Bluff
+Skill-Climb
+Skill-Craft
+Skill-Decipher Script
+Skill-Diplomacy
+Skill-Disable Device
+Skill-Disguise
+Skill-Escape Artist
+Skill-Forgery
+Skill-Gather Information
+Skill-Hide
+Skill-Intimidate
+Skill-Jump
+Skill-Kowledge(local)
+Skill-Listen
+Skill-Move Silently
+Skill-Open Lock
+Skill-Perform
+Skill-Profession
+Skill-Search
+Skill-Sense Motive
+Skill-Sleight of Hand
+Skill-Spot
+Skill-Swim
+Skill-Tumble
+Skill-Use Magic Device
+Skill-Use Rope
+Skill Points:8
+Feature-Simple Weapons
+Feature-Sneak Attack
+Feature-Trapfinding
+Feature-Evasion
+Feature-Trap Sense
+Feature-Uncanny Dodge
+Feature-Improved Uncanny Dodge
+Ability-Crippling Strike
+Ability-Defensive Roll
+Ability-Improved Evasion
+Ability-Opportunist
+Ability-Skill Mastery
+Ability-Slippery Mind
+Ability-Feat
