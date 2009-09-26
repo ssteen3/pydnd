@@ -1,0 +1,24 @@
+Name:Barbarian
+HP:12
+Alignment:Neutral,Chaotic
+Skill-Climb
+Skill-Craft
+Skill-Handle Animal
+Skill-Intimidate
+Skill-Jump
+Skill-Listen
+Skill-Ride
+Skill-Survival
+Skill-Swim
+Skill Points:4
+Feature-Fast Movement
+Feature-Illiteracy
+Feature-Rage
+Feature-Uncanny Dodge
+Feature-Trap Sense
+Feature-Improved Uncanny Dodge
+Feature-Damage Reduction
+Feature-Greater Rage
+Feature-Indomitable Will
+Feature-Tireless Rage
+Feature-Mighty Rage

@@ -1,0 +1,31 @@
+Appraise,TRUE,Intelligence
+Balance,TRUE,Dexterity
+Bluff,TRUE,Charisma
+Climb,TRUE,Strength
+Concentration,TRUE,Consitution
+Decipher Script,FALSE,Intelligence
+Diplomacy,TRUE,Charisma
+Disable Device,FALSE,Intelligence
+Disguise,TRUE,Charisma
+Escape Artist,TRUE,Dexterity
+Forgery,TRUE,Intelligence
+Gather Information,TRUE,Charisma
+Handle Animal,FALSE,Charisma
+Heal,TRUE,Wisdom
+Hide,TRUE,Dexterity
+Intimidate,TRUE,Charisma
+Jump,TRUE,Strength
+Listen,TRUE,Charisma
+Move Silently,TRUE,Dexterity
+Open Lock,FALSE,Dexterity
+Ride,TRUE,Dexterity
+Search,TRUE,Intelligence
+Sense Motive,TRUE,Wisdom
+Sleight of Hand,FALSE,Dexterity
+Spellcraft,FALSE,Intelligence
+Spot,TRUE,Wisdom
+Survival,TRUE,Wisdom
+Swim,TRUE,Strength
+Tumble,FALSE,Dexterity
+Use Magic Device,FALSE,Charisma
+Use Rope,TRUE,Dexterity

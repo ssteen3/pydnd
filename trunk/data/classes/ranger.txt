@@ -1,0 +1,2 @@
+Name:Ranger
+HP:8

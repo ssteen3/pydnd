@@ -1,0 +1,31 @@
+Name:Bard
+HP:6
+Skill-Appraise
+Skill-Balance
+Skill-Bluff
+Skill-Climb
+Skill-Concentration
+Skill-Craft
+Skill-Decipher Script
+Skill-Diplomacy
+Skill-Disguise
+Skill-Escape Artist
+Skill-Gather Information
+Skill-Hide
+Skill-Jump
+Skill-Knowledge
+Skill-Listen
+Skill-Move Silently
+Skill-Perform
+Skill-Profession
+Skill-Sense Motive
+Skill-Sleight of Hand
+Skill-Speak Language
+Skill-Spellcraft
+Skill-Swim
+Skill-Tumble
+Skill-Use Magic Device
+Skill Points:6
+Feature-Spells
+Feature-Bardic Knowledge
+Feature-Bardic Music

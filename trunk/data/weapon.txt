@@ -1,0 +1,6 @@
+Name:Short Sword
+Range:0
+Damage:6
+Critical:19-20x2
+Type:Piercing
+Ammo:

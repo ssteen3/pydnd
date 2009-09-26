@@ -1,0 +1,22 @@
+Name:Druid
+HP:8
+Skill-Concentration
+Skill-Craft
+Skill-Diplomacy
+Skill-Handle Animal
+Skill-Heal
+Skill-Knowledge(nature)
+Skill-Listen
+Skill-Profession
+Skill-Ride
+Skill-Spellcraft
+Skill-Spot
+Skill-Survival
+Skill-Swim
+Feature-Spells
+Feature-Spontaneuous Casting
+Feature-Animal COmpanion
+Feautre-Nature Sense
+Feature-Wild Empathy
+Feature-Woodland Stride
+Feature-Trackless Step

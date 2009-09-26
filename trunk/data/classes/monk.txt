@@ -1,0 +1,2 @@
+Name:Monk
+HP:8
