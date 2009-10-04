@@ -1,4 +1,5 @@
 import pygame
+import random
 from pygame.locals import *
 
 class screenhandler:
@@ -191,6 +192,8 @@ class piece:
 		self.locy = y
 		self.ifile = image
 		self.myname = name
+		self.initiative = random.randrange(1,40,1)
+		print(self.initiative)
 		if iw > 0:
 			self.createloc()
 			self.sq = self.grid.getsquare(self.midx,self.midy)
@@ -350,6 +353,7 @@ class piece:
 	
 
 #start
+random.seed()
 pygame.init()
 pygame.font.init()
 screen = pygame.display.set_mode((800,600))
