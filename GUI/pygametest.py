@@ -12,6 +12,7 @@ class gridarea:
 		self.item = {}
 		self.linesh = {}
 		self.linesw = {}
+		self.csa = 1
 		self.root = root
 		self.w = w
 		self.h = h
@@ -67,26 +68,23 @@ class gridarea:
 		return self.sel
 		
 	def handlemouse(self, x,y):
+		red = [255,0,0,255]
 		for but in self.butnames:
 			if (self.buttons[but].collidepoint(x, y)):
 				self.butfuncs[but]()
+		if x <= 600:
+			sx,sy = self.getsquare(x,y)
+			for sel in self.pieces.keys():
+				if self.pieces[sel].inxy(sx,sy) == 1:
+					self.selsquare(x,y,red,1)
+					self.update()
+					self.sel = self.pieces[sel]
 
 	def createpiece(self,x,y,name,ifile,iw,ih):
 		color = [0,255,0,255]
 		self.pieces[name] = piece(self,x,y,ifile,name,iw,ih)
 		self.pieces[name].sel(color)
 		self.sel = self.pieces[name]
-		
-	def onleft(self):
-		self.pieces['bob'].smove(50,50)
-		self.update()
-		self.pieces['john'].smove(100,50)
-		self.update()
-	
-	def onright(self):
-		self.pieces['bob'].smove(500,500)
-		self.pieces['john'].smove(450,500)
-		self.update()
 
 	def setbg(self,ifile):
 		self.drawimage(ifile,x=0,y=0)
@@ -137,6 +135,14 @@ class piece:
 		if iw > 0:
 			self.createloc()
 			
+	def inxy(self,x,y):
+		sx,sy = self.grid.getsquare(self.midx,self.midy)
+		if x == sx:
+			if sy == y:
+				return 1
+			else:
+				return 0
+			
 	def selectmove(self, mod):
 		print('Now Entering Select Move Mode')
 		red = [255,0,0,255]
@@ -149,12 +155,12 @@ class piece:
 		print('Created Buttons')
 		self.grid.makebutton
 		mvsquares = []
-		speed = 20*mod
+		speed = 40*mod
 		sqleft = speed
 		self.sel(red)
 		cur = self.grid.getsquare(self.midx,self.midy)
 		self.grid.update()
-		while sqleft > 0:
+		while 1:
 			for event in pygame.event.get():
 				if event.type == QUIT:
 					print('Quiting')
@@ -163,37 +169,36 @@ class piece:
 					z = pygame.mouse.get_pos()
 					next = self.grid.getsquare(z[0],z[1])
 					x,y = next
-					print('Mouse Input',x,y)
 					if (x > 14):
 						if (cancel.collidepoint(z[0],z[1])):
-							print('Canceled Select Mode')
 							return
 						if (go.collidepoint(z[0],z[1])):
-							print('Moving')
 							self.movelist(mvsquares)
 							return
 						self.grid.handlemouse(z[0],z[1])
 					else:
-						print(cur,next)
-						if (cur[0] == x) and (cur[1] == y):
-							mvsquares.remove(cur)
-							if (len(mvsquares)>0):
-								cur = mvsquares.pop()
-								mvsquares.append(cur)
-							else:
-								cur = self.grid.getsquare(self.midx,self.midy)
-							self.grid.selsquare(z[0],z[1],black,0)
-							self.grid.update()
-						elif (abs(cur[0]-x)<2) and (abs(cur[1]-y)<2):
-							print('I am here')
-							print(mvsquares)
-							if not (next in mvsquares):
-								print("Selecting Square ",cur[0],cur[1])
-								mvsquares.append(next)
-								self.grid.selsquare(z[0],z[1],green,0)
+						if sqleft > 5:
+							if (cur[0] == x) and (cur[1] == y):
+								mvsquares.remove(cur)
+								if (len(mvsquares)>0):
+									cur = mvsquares.pop()
+									mvsquares.append(cur)
+								else:
+									cur = self.grid.getsquare(self.midx,self.midy)
+								self.grid.selsquare(z[0],z[1],black,0)
 								self.grid.update()
-								cur = next
-#						else:
+							elif (abs(cur[0]-x)<2) and (abs(cur[1]-y)<2):
+								if not (next in mvsquares):
+									if (abs(cur[0]-x)>0) and (abs(cur[1]-y)>0):
+										sqleft -= 15
+									elif (abs(cur[0]-x)>0) or (abs(cur[1]-y)>0):
+										sqleft -= 10
+									mvsquares.append(next)
+									self.grid.selsquare(z[0],z[1],green,0)
+									self.grid.update()
+									cur = next
+						else:
+							print('out of movement')
 
 	def movelist(self,mvsquares):
 		for square in mvsquares:
@@ -277,9 +282,7 @@ pygame.display.set_caption('DnD Engine')
 objects = []
 grid = gridarea(screen,600,600,15,15)
 RED = [255,255,255,255]
-grid.makebutton(601,1,98,25,'Left',RED,grid.onleft)
-grid.makebutton(700,1,98,25,'Right',RED,grid.onright)
-grid.makebutton(601,27,98,25,'Exit',RED,exit)
+grid.makebutton(601,1,98,25,'Exit',RED,exit)
 grid.update()
 color= [255,0,0,255]
 print(grid.getsel().getname())
