@@ -26,6 +26,21 @@ class screenhandler:
 			self.buttonstart(bw,bh,bspace)
 		self.update()
 		
+	def parseinit(self):
+		initlist = []
+		i = 0
+		done = 0
+		players = len(self.pieces.keys())
+		while done < players:
+			for sel in self.pieces.keys():
+				if i == self.pieces[sel].getinit():
+					done += 1
+					initlist.append(self.pieces[sel])
+			i += 1
+		
+		while len(initlist) > 0:
+			initlist.pop().turn()
+		
 	def makedummychars(self):
 		self.createpiece(250,350,'bob','.\\char.png',50,50)
 		self.createpiece(30,350,'john','.\\char.png',50,50)
@@ -197,7 +212,12 @@ class piece:
 		if iw > 0:
 			self.createloc()
 			self.sq = self.grid.getsquare(self.midx,self.midy)
-			
+		
+	def getinit(self):
+		return 20
+		
+	def turn(self):
+		
 	def inxy(self,x,y):
 		sx,sy = self.grid.getsquare(self.midx,self.midy)
 		if x == sx:
@@ -353,10 +373,12 @@ class piece:
 	
 
 #start
+x = 800
+y = 500
 random.seed()
 pygame.init()
 pygame.font.init()
-screen = pygame.display.set_mode((800,600))
+screen = pygame.display.set_mode((x,y))
 pygame.display.set_caption('DnD Engine')
 
 
@@ -368,7 +390,7 @@ pygame.display.set_caption('DnD Engine')
 #screen.blit(background, (0,0))
 
 objects = []
-grid = screenhandler(screen,600,600,15,15)
+grid = screenhandler(screen,y,y,15,15)
 white = [255,255,255,255]
 grid.easybutton('Exit',white,exit,align='bottom')
 grid.update()
