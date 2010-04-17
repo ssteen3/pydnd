@@ -12,6 +12,7 @@ class Game:
         self.sqx = sqx
         self.sqy = sqy
         self.anchor = (0,0)
+        self.database = 0
         self.client = Client(host,port)
         pygame.init()
         self.screen = pygame.display.set_mode((self.resx, self.resy))
