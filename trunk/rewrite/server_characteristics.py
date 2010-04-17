@@ -1,5 +1,6 @@
-import socket
+from database import *
 from client_characteristics import ClientPlayer
+import socket
 
 class ServerPlayer(ClientPlayer):
     """Player class used by Server."""
@@ -16,17 +17,18 @@ class Server:
 
     Most of this server class was taken from the dc-rts project.
     """
-    def __init__(self, hostname, port):
+    def __init__(self, hostname, port, x=32, y=24, genfile=0):
         """Creates a server at the given hostname and port.
 
         Passing a blank hostname will cause the server to bind to all
         interfaces.
         """
         self.players = list()
-        self.it = 0 # iterator used to track communications frames
         self.msg = 0 # message buffer
         self.addr = 0 # address of player whose message is being parsed
         self._connect(hostname, port)
+        self.genfile = genfile
+        self.database = Database(x,y,genfile,0,0,self)
 
     def tick(self):
         """Handles all networking and simulation for one communications frame."""
@@ -39,7 +41,6 @@ class Server:
             # self.players.
             if self._check_player():
                 self._lookup_msg()
-        self.it += 1
 
     def combat_tick(self):
         self.unit_db.combat_tick(self.weapon_db)
@@ -99,7 +100,8 @@ class Server:
             self._send_to([p.id, "add_player"], id)
         # tell the new player which one is him
         self._send_to([id, "is_you"], id)
-        self._send_to([id, "sync"], id)
+        self._send_to([id, "sync", self.database.area.x,
+                    self.database.area.y,self.genfile], id)
         print "New Server Player", id
 
     def _next_msg(self):
@@ -117,17 +119,14 @@ class Server:
     def _queue_msg(self, m):
         """Passes off messages to clients and server's own UnitDB instance."""
         self._send_all(m)
-        self.unit_db.queue(m)
 
     def _send_all(self, m):
         """Sends the given message to all players."""
-        m.insert(0, self.it + 2)
         for p in self.players:
             self.sock.sendto(repr(m), p.addr)
 
     def _send_to(self, m, id):
         """Sends the given message to the specified player."""
-        m.insert(0, self.it + 2)
         self.sock.sendto(repr(m), self.players[id].addr)
     
 

@@ -1,4 +1,5 @@
-
+from database import *
+from ui_characteristics import *
 import socket
 
 class ClientPlayer:
@@ -15,15 +16,16 @@ class Client:
 
     Much of this class was again taken from the dc-rts project.
     """
-    def __init__(self, hostname, port):
+    def __init__(self, hostname, port, game):
         """Creates a client that attempts to connect to a server at the given
         hostname and port."""
         self.players = list()
-        self.it = 0 # iterator used to track communications frames
         self.msg = 0 # message buffer
         self._connect(hostname, port)
         self.connected = False
         self.id = 0 # client's corresponding player id
+        self.game = game
+        self.database = self.game.database
 
     def tick(self):
         """Handles all networking and simulation for one communications frame."""
@@ -31,7 +33,6 @@ class Client:
             if not self._next_msg():
                 break
             self._lookup_msg()
-        self.it += 1
 
     def _add_player(self, m):
         """Adds a new ClientPlayer to self.players"""
@@ -58,8 +59,7 @@ class Client:
         counter with the server)
         """
         if self.connected:
-            msg_lu = {"add": self._queue_msg, "attack": self._queue_msg, "move": self._queue_msg, "add_player":
-                self._add_player}
+            msg_lu = {"database": self._queue_msg, "graphical": self._queue_scr, "add_player": self._add_player}
         else:
             msg_lu = {"add_player": self._add_player, "is_you": self._set_id,
                 "sync": self._sync}
@@ -82,8 +82,12 @@ class Client:
             return False
 
     def _queue_msg(self, m):
-        """Sends messages from the server to the UnitDB queue"""
+        """Sends messages from the server to the DB queue"""
         self.database.queue(m)
+
+    def _queue_msg(self, m):
+        """Sends messages from the server to the SCR queue"""
+        self.game.queue(m)
 
     def _send(self, m):
         """Sends message to server"""
@@ -98,5 +102,4 @@ class Client:
         """Synchronizes client communications frame counter with server, and
         mark client as connected."""
         self.connected = True
-        self.it = m[0]
-        self.database.it = m[0]
+        self.database = CLDatabase(m[3],m[4],m[5])
